@@ -53,20 +53,6 @@ public class helpers {
 			"66769902729453773529591131231569572102735544195993481143033457484815030002596316655928306151074126943049377614450028533734323959138888686552706761807171386969245696096129361633104534226150835208919251885611066228846063597270995942371116296807245855582424161473422149566011004210899105193304176803779403265090");
 	
 	
-	/*public void sendPacket(DatagramSocket socket, byte[] dataToSend, SocketAddress destinationAddress)throws Exception{
-		//InetAddress IPaddress = SAddress.getAddress();
-		//int port = SAddress.getPort();
-		DatagramPacket sendPacket = new DatagramPacket(dataToSend, dataToSend.length, destinationAddress);
-		socket.send(sendPacket);
-	}
-	
-	public DatagramPacket receivePacket(DatagramSocket socket)throws Exception{
-		packetReceived = new DatagramPacket(new byte[MAX_UDP], MAX_UDP);
-		socket.receive(packetReceived);
-		//byte[] receivedData = packetReceived.getData();
-		//SocketAddress receivedFrom = packetReceived.getSocketAddress();
-		return packetReceived;
-	}*/
 	
 	//Generate Nonce
 	public byte[] GenerateNonce()throws Exception{
@@ -76,13 +62,6 @@ public class helpers {
 		return nonce;
 	}
 	
-	//Generate Hash of given data
-	/*public byte[] generateHash(byte[] toHash)throws Exception{
-		MessageDigest digest = MessageDigest.getInstance("SHA-512"); 
-		digest.update(toHash); 
-		byte[] hashed = digest.digest();
-		return hashed;
-	}*/
 	
 	public static byte[] generateHash(String pass, byte[] salt) throws GeneralSecurityException {
 		   char[] password = pass.toCharArray();
@@ -119,27 +98,6 @@ public class helpers {
 				return finalSharedsecret;
 		}
 	
-
-    
-	//Generate HMAC
-	/*public static byte[] generateHMAC(SecretKey symmetricKey, byte[] toHash)throws Exception{
-		SecretKeySpec specs = new SecretKeySpec(symmetricKey.getEncoded(), "SHA-512");
-		Mac mac = Mac.getInstance("SHA-512");
-		mac.init(specs);
-		byte[] hashedMessage = mac.doFinal(toHash);
-		return hashedMessage;
-	}
-	
-	//Verify HMAC
-	public static boolean verifyHMAC(SecretKey symmetricKey, byte[]hashedMessage, byte[] message)throws Exception{
-		byte[] messageHMAC = generateHMAC(symmetricKey, message); 
-		if(Arrays.equals(hashedMessage, messageHMAC)){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}*/
 		
 		
 		//Digitally signing the data
